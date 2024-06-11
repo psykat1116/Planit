@@ -9,7 +9,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Planit - Collaborative Task Management Tool",
+  title: {
+    default: "Planit - Collaborative Task Management Tool",
+    template: `%s | Planit`,
+  },
   description:
     "Planit is an intuitive and feature-rich task management application designed to help teams organize, prioritize, and collaborate on projects efficiently. Inspired by Trello, this clone offers a seamless user experience with functionalities that allow users to create boards, lists, and cards to represent their projects and tasks. Each card can be enriched with descriptions, due dates, labels, and comments, fostering effective communication and project tracking within teams.",
   icons: {

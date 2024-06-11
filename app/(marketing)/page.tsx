@@ -24,7 +24,7 @@ const Page = () => {
         Accomplish It All With Planit.
       </div>
       <Button className="mt-6" size="lg" asChild>
-        <Link href="/signup">Get Taskify For Free</Link>
+        <Link href="/sign-up">Get Taskify For Free</Link>
       </Button>
     </div>
   );
