@@ -22,7 +22,7 @@ const FormButton = ({
   children,
   className,
   disabled,
-  variant,
+  variant = "primary",
 }: FormButtonProps) => {
   const { pending } = useFormStatus();
   return (

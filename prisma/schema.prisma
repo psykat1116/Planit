@@ -14,6 +14,14 @@ datasource db {
 }
 
 model Board {
-  id    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  title String
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orgId         String
+  title         String
+  imageId       String
+  imageThumbUrl String   @db.String
+  imageFullUrl  String   @db.String
+  imageUserName String   @db.String
+  imageLinkHTML String   @db.String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
