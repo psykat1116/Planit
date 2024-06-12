@@ -89,13 +89,16 @@ const Sidebar = ({ storageKey = "p-sidebar-state" }: SidebarProps) => {
         className="space-y-2"
       >
         {userMemberships.data.map(({ organization }) => (
-          <NavItem
-            isActive={activeOrganization?.id === organization.id}
-            key={organization.id}
-            isExpanded={expanded[organization.id]}
-            organization={organization as Organization}
-            onExpand={onExpand}
-          />
+          <>
+            <Separator />
+            <NavItem
+              isActive={activeOrganization?.id === organization.id}
+              key={organization.id}
+              isExpanded={expanded[organization.id]}
+              organization={organization as Organization}
+              onExpand={onExpand}
+            />
+          </>
         ))}
       </Accordion>
     </>
