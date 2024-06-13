@@ -3,18 +3,16 @@ import { OrganizationProfile } from "@clerk/nextjs";
 
 const Page = () => {
   return (
-    <div className="w-full">
+    <div className="w-full flex items-center justify-center">
       <OrganizationProfile
         appearance={{
           elements: {
             rootBox: {
-              boxShadow: "none",
-              width: "100%",
+              marginBottom: "1rem",
             },
-            card: {
-              border: "1px solid #e5e5e5",
+            cardBox: {
               boxShadow: "none",
-              width: "100%",
+              border: "1px solid #e2e2e4"
             },
           },
         }}
