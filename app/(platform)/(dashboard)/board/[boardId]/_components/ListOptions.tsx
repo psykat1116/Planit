@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import {
   CopyPlus,
   MoreHorizontal,
-  PencilRuler,
+  Settings,
   SquarePlus,
   Trash,
   X,
@@ -67,7 +67,7 @@ const ListOptions: React.FC<ListOptionsProps> = ({ data, onAddCard }) => {
       <PopoverContent className="px-0 py-1" side="bottom" align="center">
         <div className="flex items-center w-full">
           <div className="text-sm font-medium text-left text-neutral-600 py-2 pl-3 flex items-center">
-            <PencilRuler className="h-5 w-5 mr-2" />
+            <Settings className="h-5 w-5 mr-2" />
             List Actions
           </div>
           <PopoverClose asChild ref={closeRef}>
@@ -79,6 +79,7 @@ const ListOptions: React.FC<ListOptionsProps> = ({ data, onAddCard }) => {
             </Button>
           </PopoverClose>
         </div>
+        <Separator />
         <Button
           onClick={onAddCard}
           className="rounded-none w-full h-auto p-2 px-3 justify-start font-normal text-sm"

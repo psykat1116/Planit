@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, ElementRef } from "react";
 import ListWrapper from "./ListWrapper";
-import { Plus, X } from "lucide-react";
+import { Plus} from "lucide-react";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
 import FormInput from "@/components/form/FormInput";
 import { useParams, useRouter } from "next/navigation";
@@ -59,13 +59,13 @@ const ListForm = () => {
         <form
           action={onSubmit}
           ref={formRef}
-          className="w-full p-3 rounded-md bg-white space-y-4 shadow-md"
+          className="w-full p-3 rounded-md bg-[#f1f1f4] space-y-4 shadow-md"
         >
           <FormInput
             ref={inputRef}
             id="title"
             errors={fieldErrors}
-            className="text-sm px-2 py-1 font-medium border-transparent hover:border-input focus:border-input transition"
+            className="text-sm px-2 py-4 font-medium focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm transition"
             placeholder="Enter list title"
           />
           <div className="flex items-center gap-x-1">
@@ -76,7 +76,6 @@ const ListForm = () => {
               variant="outline"
               className="flex items-center"
             >
-              <X className="h-5 w-5 mr-2" />
               Cancel
             </Button>
           </div>

@@ -10,9 +10,10 @@ import ListOptions from "./ListOptions";
 
 interface ListHeaderProps {
   data: List;
+  onAddCard: () => void;
 }
 
-const ListHeader: React.FC<ListHeaderProps> = ({ data }) => {
+const ListHeader: React.FC<ListHeaderProps> = ({ data, onAddCard }) => {
   const { execute } = useAction(updateList, {
     onSuccess: (d) => {
       toast.success(`Renamed To "${d.title}"`);
@@ -83,7 +84,7 @@ const ListHeader: React.FC<ListHeaderProps> = ({ data }) => {
           {data.title}
         </div>
       )}
-      <ListOptions data={data} onAddCard={()=>{}}/>
+      <ListOptions data={data} onAddCard={onAddCard}/>
     </div>
   );
 };
