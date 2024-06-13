@@ -15,7 +15,8 @@ interface FormButtonProps {
     | "link"
     | "secondary"
     | "ghost"
-    | "outline";
+    | "outline"
+    | "transparent";
 }
 
 const FormButton = ({
