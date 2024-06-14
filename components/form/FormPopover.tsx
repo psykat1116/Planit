@@ -15,6 +15,7 @@ import { createBoard } from "@/actions/CreateBoard";
 import { toast } from "sonner";
 import FormPicker from "./FormPicker";
 import { useRouter } from "next/navigation";
+import { useSubscriptionModal } from "@/hooks/useSubscriptionModal";
 
 interface FormPopoverProps {
   children: React.ReactNode;
@@ -31,6 +32,7 @@ const FormPopover = ({
 }: FormPopoverProps) => {
   const router = useRouter();
   const closeRef = useRef<ElementRef<"button">>(null);
+  const { onOpen } = useSubscriptionModal();
 
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
@@ -40,6 +42,7 @@ const FormPopover = ({
     },
     onError: (error) => {
       toast.error("Error creating board");
+      onOpen();
     },
   });
 

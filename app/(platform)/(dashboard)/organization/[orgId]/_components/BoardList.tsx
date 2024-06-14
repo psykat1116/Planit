@@ -7,6 +7,8 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getAvailableCount } from "@/lib/orgLimit";
+import { checkSubscription } from "@/lib/subscription";
 
 const BoardList = async () => {
   const { orgId } = auth();
@@ -20,6 +22,9 @@ const BoardList = async () => {
       createdAt: "desc",
     },
   });
+
+  const availableCount = await getAvailableCount();
+  const isPro = await checkSubscription();
 
   return (
     <div className="space-y-4">
@@ -47,7 +52,9 @@ const BoardList = async () => {
             role="button"
           >
             <p className="text-sm">Create New Board</p>
-            <span>5 Remaining</span>
+            <span>
+              {isPro ? "Unlimited" : `${5 - availableCount} Remaining`}
+            </span>
             <Hint
               sideOffset={40}
               description={`

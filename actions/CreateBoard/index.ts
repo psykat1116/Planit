@@ -8,6 +8,8 @@ import { createSafeAction } from "@/lib/CreateSafeAction";
 import { CreateBoard } from "./Schema";
 import { createAuditLog } from "@/lib/CreateAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { increamentAvilableCount, hasAvailableCount } from "@/lib/orgLimit";
+import { checkSubscription } from "@/lib/subscription";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -15,6 +17,16 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   if (!userId || !orgId) {
     return {
       error: "401 Unauthorized",
+    };
+  }
+
+  const canCreate = await hasAvailableCount();
+  const isPro = await checkSubscription();
+
+  if (!canCreate && !isPro) {
+    return {
+      error:
+        "You have reached your limit of free boards. Please upgrade to create more boards.",
     };
   }
 
@@ -48,6 +60,10 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         imageUserName,
       },
     });
+
+    if (!isPro) {
+      await increamentAvilableCount();
+    }
 
     await createAuditLog({
       action: ACTION.CREATE,
