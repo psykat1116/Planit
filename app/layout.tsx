@@ -25,9 +25,26 @@ export const metadata: Metadata = {
       {
         media: "(prefers-color-scheme: light)",
         href: "/LogoDark.svg",
-        url: "/LogoLight.svg",
+        url: "/LogoDark.svg",
       },
     ],
+  },
+  openGraph: {
+    images: [
+      {
+        url: "https://github.com/psykat1116/Planit/blob/master/public/OpenGraph.png",
+        width: 1200,
+        height: 630,
+        alt: "Planit - Collaborative Task Management Tool",
+      },
+    ],
+    title: "Planit - Collaborative Task Management Tool",
+    description:
+      "Planit is an intuitive and feature-rich task management application designed to help teams organize, prioritize, and collaborate on projects efficiently. Inspired by Trello, this clone offers a seamless user experience with functionalities that allow users to create boards, lists, and cards to represent their projects and tasks. Each card can be enriched with descriptions, due dates, labels, and comments, fostering effective communication and project tracking within teams.",
+    type: "website",
+    url: "https://planit.vercel.app",
+    siteName: "Planit",
+    locale: "en_IN",
   },
 };
 

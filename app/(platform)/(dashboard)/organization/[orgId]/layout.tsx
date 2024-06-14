@@ -1,6 +1,5 @@
 import React from "react";
 import OrgControl from "./_components/OrgControl";
-import type { Metadata } from "next";
 import { startCase } from "lodash";
 import { auth } from "@clerk/nextjs/server";
 
