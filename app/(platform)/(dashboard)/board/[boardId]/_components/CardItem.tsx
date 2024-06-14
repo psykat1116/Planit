@@ -2,6 +2,7 @@
 import { Card } from "@prisma/client";
 import React from "react";
 import { Draggable } from "@hello-pangea/dnd";
+import { useCardModal } from "@/hooks/useCardModal";
 
 interface CardItemProps {
   index: number;
@@ -9,10 +10,12 @@ interface CardItemProps {
 }
 
 const CardItem: React.FC<CardItemProps> = ({ index, data }) => {
+  const { onOpen } = useCardModal();
   return (
     <Draggable draggableId={data.id} index={index}>
       {(provided) => (
         <div
+          onClick={() => onOpen(data.id)}
           role="button"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
