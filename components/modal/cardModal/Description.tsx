@@ -28,6 +28,9 @@ const Description = ({ data }: DescriptionProps) => {
       queryClient.invalidateQueries({
         queryKey: ["card", data.id],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["card-logs", data.id],
+      });
       toast.success(`Card "${data.title}" Updated`);
       DisableEditing();
     },
@@ -67,7 +70,7 @@ const Description = ({ data }: DescriptionProps) => {
   };
 
   return (
-    <div className="flex items-start gap-x-3 w-full">
+    <div className="flex items-start gap-x-3 w-full md:w-1/2">
       <AlignLeft className="h-5 w-5 mt-0.5 text-neutral-700" />
       <div className="w-full">
         <p className="font-bold text-neutral-700 mb-2">Description</p>

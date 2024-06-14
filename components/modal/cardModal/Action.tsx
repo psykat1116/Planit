@@ -54,11 +54,11 @@ const Action = ({ data }: ActionProps) => {
   };
 
   return (
-    <div className="flex items-start gap-x-3 w-full">
-      <Settings className="h-5 w-5 mt-0.5 text-neutral-700 block md:hidden" />
+    <div className="flex items-start gap-x-2 w-full md:w-1/2">
+      <Settings className="h-6 w-6 mt-0.5 text-neutral-700 block" />
       <div className="w-full">
-        <p className="font-bold text-neutral-700 mb-2">Actions</p>
-        <div className="space-y-2 mt-2">
+        <p className="font-bold text-neutral-700 mt-0.5">Actions</p>
+        <div className="space-y-2 mt-1">
           <Button
             onClick={handleCopy}
             disabled={isLoadingCopy || isLoadingDelete}

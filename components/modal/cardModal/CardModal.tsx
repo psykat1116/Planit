@@ -8,6 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 import Header from "./Header";
 import Description from "./Description";
 import Action from "./Action";
+import { AuditLog } from "@prisma/client";
+import Activity from "./Activity";
 
 const CardModal = () => {
   const { isOpen, onClose, id } = useCardModal();
@@ -15,21 +17,30 @@ const CardModal = () => {
     queryKey: ["card", id],
     queryFn: () => fetcher(`/api/card/${id}`),
   });
+
+  const { data: autditData } = useQuery<AuditLog[]>({
+    queryKey: ["card-logs", id],
+    queryFn: () => fetcher(`/api/card/${id}/logs`),
+  });
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         {!cardData ? <Header.Skeleton /> : <Header data={cardData} />}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-          <div className="col-span-3">
-            <div className="w-full space-y-4">
-              {!cardData ? (
-                <Description.Skeleton />
-              ) : (
-                <Description data={cardData} />
-              )}
-            </div>
+        <div className="flex gap-2 flex-col">
+          <div className="w-full flex flex-col md:flex-row items-start gap-2 justify-start">
+            {!cardData ? (
+              <Description.Skeleton />
+            ) : (
+              <Description data={cardData} />
+            )}
+            {!cardData ? <Action.Skeleton /> : <Action data={cardData} />}
           </div>
-          {!cardData ? <Action.Skeleton /> : <Action data={cardData} />}
+          {!autditData ? (
+            <Activity.Skeleton />
+          ) : (
+            <Activity items={autditData} />
+          )}
         </div>
       </DialogContent>
     </Dialog>
