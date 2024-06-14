@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "https://github.com/psykat1116/Planit/blob/master/public/OpenGraph.png",
-        width: 1200,
-        height: 630,
+        url: "https://github.com/psykat1116/Planit/blob/master/public/OpenGraph.png?raw=true",
+        width: 1280,
+        height: 640,
         alt: "Planit - Collaborative Task Management Tool",
       },
     ],
