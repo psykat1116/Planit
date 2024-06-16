@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useRef, ElementRef } from "react";
-import { List } from "@prisma/client";
+import ListOptions from "./ListOptions";
 import { useEventListener } from "usehooks-ts";
+import { List } from "@prisma/client";
 import FormInput from "@/components/form/FormInput";
 import { useAction } from "@/hooks/useAction";
 import { updateList } from "@/actions/UpdateList";
 import { toast } from "sonner";
-import ListOptions from "./ListOptions";
 
 interface ListHeaderProps {
   data: List;

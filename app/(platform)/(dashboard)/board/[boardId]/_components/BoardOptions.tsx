@@ -1,16 +1,16 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverClose,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { MoreHorizontal, Settings, Trash, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { deleteBoard } from "@/actions/DeleteBoard";
 import { useAction } from "@/hooks/useAction";
+import { MoreHorizontal, Settings, Trash, X } from "lucide-react";
 import { toast } from "sonner";
-import { Separator } from "@/components/ui/separator";
 
 interface BoardOptionsProps {
   id: string;

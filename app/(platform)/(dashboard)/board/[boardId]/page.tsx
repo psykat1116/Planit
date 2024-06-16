@@ -1,7 +1,7 @@
 import React from "react";
-import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 import ListContainer from "./_components/ListContainer";
 
 interface PageProps {

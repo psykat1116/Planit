@@ -1,7 +1,7 @@
 "use client";
 import { ElementRef, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Board } from "@prisma/client";
+import { Button } from "@/components/ui/button";
 import FormInput from "@/components/form/FormInput";
 import { updateBoard } from "@/actions/UpdateBoard";
 import { useAction } from "@/hooks/useAction";

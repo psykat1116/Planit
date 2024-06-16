@@ -1,7 +1,7 @@
 import React from "react";
 import { Board } from "@prisma/client";
-import BoardTitleForm from "./BoardTitleForm";
 import BoardOptions from "./BoardOptions";
+import BoardTitleForm from "./BoardTitleForm";
 
 interface BoardNavbarProps {
   data: Board;

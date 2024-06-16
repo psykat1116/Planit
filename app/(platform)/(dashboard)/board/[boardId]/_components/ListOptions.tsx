@@ -1,6 +1,6 @@
 "use client";
-import { List } from "@prisma/client";
 import React, { ElementRef, useRef } from "react";
+import { List } from "@prisma/client";
 import {
   Popover,
   PopoverClose,
@@ -20,8 +20,8 @@ import FormButton from "@/components/form/FormButton";
 import { Separator } from "@/components/ui/separator";
 import { useAction } from "@/hooks/useAction";
 import { deleteList } from "@/actions/DeleteList";
-import { toast } from "sonner";
 import { copyList } from "@/actions/CopyList";
+import { toast } from "sonner";
 
 interface ListOptionsProps {
   data: List;
