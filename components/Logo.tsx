@@ -7,14 +7,14 @@ const Logo = () => {
     <Link href="/">
       <div className="hover:opacity-75 trasition items-center gap-x-2 hidden md:flex">
         <Image
-          src="/LogoLight.svg"
+          src="/Logo.svg"
           alt="Logo"
           height={30}
           width={30}
           className="hidden dark:block"
         />
         <Image
-          src="/LogoDark.svg"
+          src="/Logo.svg"
           alt="Logo"
           height={30}
           width={30}
